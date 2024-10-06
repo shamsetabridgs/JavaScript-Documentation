@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>JavaScript Parent Node</title>
+</head>
+<body>
+    <div id="main">
+        <p class="note">This is a note!</p>
+    </div>
+    <div class="mt-3 mb-3">
+        <p class="node"></p>
+    </div>
+    <div class="mt-3 mb-3">
+        <p class="element"></p>
+    </div>
+    <div class="mb-3 mt-3">
+        <p class="details"></p>
+    </div>
+</body>
+</html>
+
+<script>
+    (function($) {
+        let note = $('.note')[0];
+        $('.node').text(`Parent Node of the class: ${note.parentNode}`);
+        $('.element').text(`Parent Element of the class: ${note.parentElement}`);
+        $('.details').text(`Inspect to show details`);
+
+        console.log(note.parentNode);
+        console.log(note.parentElement);
+    })(jQuery);
+</script>

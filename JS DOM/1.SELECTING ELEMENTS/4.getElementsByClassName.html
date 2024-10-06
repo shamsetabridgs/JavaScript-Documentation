@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript getElementsByClassName() Method</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul id="menu">
+                <li class="item">HTML</li>
+                <li class="item">CSS</li>
+                <li class="item highlight">JavaScript</li>
+                <li class="item">TypeScript</li>
+            </ul>
+        </nav>
+        <h2 class="allTextContent"></h2>
+        <h1>getElementsByClassName Demo</h1>
+    </header>
+    <section>
+        <article>
+            <h2 class="secondary">Example 1</h2>
+        </article>
+        <article>
+            <h2 class="secondary">Example 2</h2>
+        </article>
+    </section>
+    <h2 class="itemText"></h2>
+    <h2 class="elementText"></h2>
+</body>
+</html>
+
+<script>
+    (function($) {
+        'use strict';
+
+        let menu = $('#menu');
+        let items = $('.item');
+
+        let data = [].map.call(items, item => item.textContent);
+        $('.itemText').text(`Item content of the page is: ${data.join(', ')}`);
+
+        let elements = $('.secondary');
+        let elementData = [].map.call(elements, element => element.textContent);
+        $('.elementText').text(`All the elements of the page is: ${elementData.join(', ')}`);
+    })(jQuery);    
+</script>

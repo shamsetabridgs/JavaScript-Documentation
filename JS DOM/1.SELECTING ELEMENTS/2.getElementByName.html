@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Checkbox Selection Demo</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <p>Please rate the service (You can select multiple):</p>
+    <p>
+        <label for="very-poor">
+            <input type="checkbox" name="rate" value="Very Poor" id="very-poor"> Very Poor
+        </label>
+        <label for="poor">
+            <input type="checkbox" name="rate" value="Poor" id="poor"> Poor
+        </label>
+        <label for="ok">
+            <input type="checkbox" name="rate" value="OK" id="ok"> OK
+        </label>
+        <label for="good">
+            <input type="checkbox" name="rate" value="Good" id="good"> Good
+        </label>
+        <label for="very-good">
+            <input type="checkbox" name="rate" value="Very Good" id="very-good"> Very Good
+        </label>
+    </p>
+    <p>
+        <button id="btnRate">Submit</button>
+    </p>
+    <p id="output"></p>
+
+    <script>
+        (function($) {
+            'use strict';
+            
+            $('#btnRate').on('click', function() {
+                let selectedRates = [];
+
+                $('[name="rate"]:checked').each(function() {
+                    selectedRates.push($(this).val());
+                });
+
+                if (selectedRates.length > 0) {
+                    $('#output').text('You have selected: ' + selectedRates.join(', '));
+                } else {
+                    $('#output').text('You have not selected any rates.');
+                }
+            });
+        })(jQuery);
+    </script>
+</body>
+</html>

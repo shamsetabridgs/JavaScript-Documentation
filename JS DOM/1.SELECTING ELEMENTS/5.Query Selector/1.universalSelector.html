@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelector() Demo</title>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <img src="img/logo.jpg" alt="Logo" id="logo">
+        </div>
+        <nav class="primary-nav">
+            <ul>
+                <li class="menu-item current"><a href="#home">Home</a></li>
+                <li class="menu-item"><a href="#services">Services</a></li>
+                <li class="menu-item"><a href="#about">About</a></li>
+                <li class="menu-item"><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to the JS Dev Agency</h1>
+
+        <div class="container">
+            <section class="section-a">
+                <h2>UI/UX</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima deleniti ipsa atque numquam, 
+                    enim consequuntur debitis iusto dolore autem molestias totam, aperiam unde voluptatum! 
+                    Accusantium cupiditate sunt nulla sed fugit!</p>
+                    <button>Read More</button>
+            </section>
+            <section class="section-b">
+                <h2>PWA Development</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. U
+                    llam nemo earum culpa incidunt ipsa aperiam, totam, 
+                    hic eveniet dolores commodi doloribus quidem! Nulla, 
+                    sit? Nulla non similique sapiente debitis fugiat.</p>
+                    <button>Read More</button>
+            </section>
+            <section class="section-c">
+                <h2>Mobile App Development</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Illo odio maxime soluta quasi? Quam dicta magni voluptate,
+                     asperiores nisi velit quos consectetur unde, 
+                     ratione eos autem, quas veniam nostrum esse!</p>
+                     <button>Read More</button>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
+
+<script>
+    const firstElements = document.querySelector('*');
+    console.log(firstElements);
+    
+
+    const allElements = document.querySelectorAll('*');
+    allElements.forEach((element, index) => {
+        console.log(`Element ${index}: `, element);
+    })
+</script>
+
+<!-- <html lang="en">...</html> -->
+
+<!-- 
+Element 0: <html lang="en">...</html>
+Element 1: <head>...</head>
+Element 2: <title>querySelector() Demo</title>
+Element 3: <body>...</body>
+Element 4: <header>...</header>
+Element 5: <div id="logo">...</div>
+Element 6: <img src="img/logo.jpg" alt="Logo" id="logo">
+Element 7: <nav class="primary-nav">...</nav>
+Element 8: <ul>...</ul>
+Element 9: <li class="menu-item current"><a href="#home">Home</a></li>
+Element 10: <a href="#home">Home</a>
+...
+Element 20: <h1>Welcome to the JS Dev Agency</h1>
+...
+Element 29: <button>Read More</button>
+... -->

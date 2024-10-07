@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelector() Demo</title>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <img src="img/logo.jpg" alt="Logo" id="logo">
+        </div>
+        <nav class="primary-nav">
+            <ul>
+                <li class="menu-item current"><a href="#home">Home</a></li>
+                <li class="menu-item"><a href="#services">Services</a></li>
+                <li class="menu-item"><a href="#about">About</a></li>
+                <li class="menu-item"><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to the JS Dev Agency</h1>
+
+        <div class="container">
+            <section class="section-a">
+                <h2>UI/UX</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima deleniti ipsa atque numquam, 
+                    enim consequuntur debitis iusto dolore autem molestias totam, aperiam unde voluptatum! 
+                    Accusantium cupiditate sunt nulla sed fugit!</p>
+                    <button>Read More</button>
+            </section>
+            <section class="section-b">
+                <h2>PWA Development</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. U
+                    llam nemo earum culpa incidunt ipsa aperiam, totam, 
+                    hic eveniet dolores commodi doloribus quidem! Nulla, 
+                    sit? Nulla non similique sapiente debitis fugiat.</p>
+                    <button>Read More</button>
+            </section>
+            <section class="section-c">
+                <h2>Mobile App Development</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Illo odio maxime soluta quasi? Quam dicta magni voluptate,
+                     asperiores nisi velit quos consectetur unde, 
+                     ratione eos autem, quas veniam nostrum esse!</p>
+                     <button>Read More</button>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
+
+
+
+<script>
+
+    //.....................................................Descendent Combinator(ancestor descendent).........................................................
+    const navLikn = document.querySelector('nav a');
+    console.log(navLikn);
+
+
+    const navLikns = document.querySelectorAll('nav a');
+    navLikns.forEach((nl, index) => {
+        console.log(`Nav Links ${index + 1}: `, nl);
+    })
+    
+    // Nav Link 1: <a href="#home">Home</a>
+    // Nav Link 2: <a href="#services">Services</a>
+    // Nav Link 3: <a href="#about">About</a>
+    // Nav Link 4: <a href="#contact">Contact</a>
+
+
+
+    //......................................................Child Combinator(parent > child)..............................................................
+    const navList = document.querySelector('nav > ul');
+    console.log(navList);
+    
+
+    const navLists = document.querySelectorAll('nav > ul');
+    navLists.forEach((nl, index) => {
+        console.log(`Menu Item ${index + 1}: `, nl);
+    })
+
+    // Menu Item 1: <li class="menu-item current"><a href="#home">Home</a></li>
+    // Menu Item 2: <li class="menu-item"><a href="#services">Services</a></li>
+    // Menu Item 3: <li class="menu-item"><a href="#about">About</a></li>
+    // Menu Item 4: <li class="menu-item"><a href="#contact">Contact</a></li>
+
+
+
+    //.......................................................General Sibling Combinator(element ~ sibling)..................................................
+    const siblingSections = document.querySelectorAll('.section-a ~ section');
+    siblingSections.forEach((sb, index) => {
+        console.log(`Sibling Sections ${index + 1}: `, sb);
+    })
+
+    // Sibling Section 1: <section class="section-b">
+    // Sibling Section 2: <section class="section-c">
+
+
+    //.......................................................Adjacent Sibling Combinators(element + sibling)................................................
+    const nextSection = document.querySelector('.section-a + section');
+    console.log(nextSection);
+    
+    // <section class="section-b">
+    // <h2>PWA Development</h2>
+    // <p>Lorem ipsum...</p>
+    // <button>Read More</button>
+    // </section>
+</script>

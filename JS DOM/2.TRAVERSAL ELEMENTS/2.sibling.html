@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Siblings</title>
+</head>
+<body>
+    <ul id="menu">
+        <li>Home</li>
+        <li>Products</li>
+        <li class="current">Customer Support</li>
+        <li>Careers</li>
+        <li>Investor</li>
+        <li>News</li>
+        <li>About Us</li>
+    </ul>
+</body>
+</html>
+
+<script>
+
+    //.........................................Get next siblings...............................................
+    // let current     = document.querySelector('.current');
+    // let nextSibling = current.nextElementSibling;
+    // console.log(nextSibling);                          // <li>Careers</li>
+
+
+
+    //.........................................Get all next SIblings............................................
+    // let current = document.querySelector('.current');
+    // let nextSibling = current.nextElementSibling;
+    // while(nextSibling) {
+    //     console.log(nextSibling);
+    //     nextSibling = nextSibling.nextElementSibling;
+    // }                                                    // <li>Careers</li> <li>Investor</li> <li>News</li> <li>About Us</li>
+
+
+
+
+
+    //.............................................Get previous siblings...........................................
+      // let current = document.querySelector('.current');
+      // let previousSibling = current.previousElementSibling;
+      // console.log(previousSibling);                                       // <li>Products</li>
+
+
+
+
+    //...........................................Get all previous siblings..........................................
+    // let current         = document.querySelector('.current');
+    // let previousSibling = current.previousElementSibling;
+    // while(previousSibling) {
+    //     console.log(previousSibling);
+    //     previousSibling = previousSibling.previousElementSibling;
+    // }                                                                         // <li>Home</li>  <li>Products</li>
+    
+
+
+
+//.......................................Get All Siblings............................................
+    
+    let getSiblings = function(e) {
+        let siblings = [];
+        if(!e.parentNode) {
+            return siblings;
+        }
+        let sibling = e.parentNode.firstChild;
+
+        while (sibling) {
+            if (sibling.nodeType ===1 && sibling !== e) {
+                siblings.push(sibling);
+            }
+            sibling = sibling.nextSibling;
+        }
+        return siblings;
+    };
+
+    let siblings = getSiblings(document.querySelector('.current'));
+    siblingText = siblings.map(e => e.innerHTML);
+    console.log(siblingText);                           // ['Home', 'Products', 'Careers', 'Investor', 'News', 'About Us']
+</script>
